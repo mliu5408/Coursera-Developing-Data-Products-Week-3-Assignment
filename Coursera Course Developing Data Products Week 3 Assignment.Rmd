@@ -1,0 +1,48 @@
+---
+title: "Coursera Course Developing Data Products Week 3 Assignment"
+author: "M. Liu"
+date: 2018-07-10
+output:
+  html_document:
+    keep_md: yes
+    toc: yes
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
+---
+
+```{r, results='hide', echo=FALSE, include=FALSE}
+
+setwd("D:/Coursera/9_Developing Data Products/Week3")
+
+#install.packages("caret")
+#install.packages("png")
+#install.packages("grid")
+#install.packages("leaflet")
+#install.packages("plotly")
+#install.packages("ggplot2")
+library(caret)
+library(png)
+library(grid)
+library(leaflet)
+library(plotly)
+library(ggplot2)
+```
+
+
+## Brief Introduction ##
+
+This presentation shows Alberta Population Projections based on medium economical scenarios.
+
+
+## Alberta Population Projections ##
+
+```{r, results='show', echo=FALSE,include=TRUE, message=FALSE}
+abpop <- read.csv("alberta-population-projections-summary.csv")
+
+plot_ly(data=abpop) %>%
+  add_trace(x = ~year, y = ~population_in_thousand, type="scatter") %>% 
+  layout(xaxis=list(title="Year"), yaxis=list(title="Population (thousands)"))
+```
+
